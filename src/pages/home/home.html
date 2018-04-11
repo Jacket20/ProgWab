@@ -4,19 +4,25 @@
       Ionic Blank
     </ion-title>
   </ion-navbar>
-  <ion-searchbar (ionInput)="getItems($event)"></ion-searchbar>
+  <ion-searchbar (ionInput)="getResults($event)"></ion-searchbar>
 </ion-header>
 
-<ion-content padding>
-  <ion-list>
-      <ion-item *ngFor="let current of Results">
-        <ion-thumbnail item-start>
-          <img src="{{current.image}}">
-        </ion-thumbnail>
-        <h2>{{current.title}}</h2>
-        <p>{{current.date}}</p>
-        <button ion-button clear item-end>View</button>
-      </ion-item>
-    </ion-list>
 
+
+<ion-content padding>
+    <button ion-button (click)="showRandomMovieAlert()" > TEST </button>
+  <ion-list>
+    <h2 id = "No Results">
+      No Results
+    </h2>
+    <ion-item *ngFor="let item of results | async">
+      <ion-thumbnail item-start>
+        <img [src]="'https://image.tmdb.org/t/p/w45'+item.poster_path">
+      </ion-thumbnail>
+      <h2> {{item.title}} </h2>
+      <p> {{item.release_date | date }} </p>
+      <button ion-button clear item-end [navPush]="pushPage" [navParams]="item"> details </button>
+    </ion-item>
+  </ion-list>
+  
 </ion-content>

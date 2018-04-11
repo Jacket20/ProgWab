@@ -12,13 +12,16 @@ import { NavController, NavParams } from 'ionic-angular';
   selector: 'page-details',
   templateUrl: 'details.html',
 })
+
 export class DetailsPage {
+  movie: Object;
 
   constructor(public navCtrl: NavController, public navParams: NavParams) {
-  }
-
-  ionViewDidLoad() {
-    console.log('ionViewDidLoad DetailsPage');
+    this.movie = navParams.data;
   }
 
 }
+
+
+
+

@@ -14,5 +14,11 @@
 
 
 <ion-content padding>
-
+    <h2> <b>title : </b> {{movie.title}} </h2>
+    <p> <b>date : </b> {{movie.release_date}} </p>
+    <p> <b>original title : </b> {{movie.original_title}} </p>
+    <p> <b>original language : </b> {{movie.original_language}} </p>
+    <p> <b>synopsis : </b> {{movie.overview}} </p>
+    <p> <b>popularity : </b> {{movie.popularity}} </p>
+    <img [src]="'https://image.tmdb.org/t/p/w45'+movie.poster_path">
 </ion-content>
